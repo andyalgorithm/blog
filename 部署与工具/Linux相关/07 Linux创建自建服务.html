@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Linux - Linux创建自建服务 | Java 全栈知识体系</title>
+    <meta name="generator" content="VuePress 1.9.8">
+    <link rel="icon" href="/blog/images/favorite.ico">
+    <meta name="description" content="对我妻子的爱是让我不断前进的动力，使我的人生少了一份恐惧，多了一份勇气。愿[执子之手, 与子偕老  To: LQ] ">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.6822ba10.css" as="style"><link rel="preload" href="/blog/assets/js/app.ba0a3011.js" as="script"><link rel="preload" href="/blog/assets/js/4.a5b48594.js" as="script"><link rel="preload" href="/blog/assets/js/60.7468b775.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.911987ed.js"><link rel="prefetch" href="/blog/assets/js/11.8c13b615.js"><link rel="prefetch" href="/blog/assets/js/12.b17d390e.js"><link rel="prefetch" href="/blog/assets/js/13.7109526b.js"><link rel="prefetch" href="/blog/assets/js/14.e4ce975e.js"><link rel="prefetch" href="/blog/assets/js/15.da7d650d.js"><link rel="prefetch" href="/blog/assets/js/16.9635a830.js"><link rel="prefetch" href="/blog/assets/js/17.7d32a3b3.js"><link rel="prefetch" href="/blog/assets/js/18.fdb5b421.js"><link rel="prefetch" href="/blog/assets/js/19.420c5e02.js"><link rel="prefetch" href="/blog/assets/js/2.3871e21e.js"><link rel="prefetch" href="/blog/assets/js/20.39a01f59.js"><link rel="prefetch" href="/blog/assets/js/21.4db56d7a.js"><link rel="prefetch" href="/blog/assets/js/22.a662eef6.js"><link rel="prefetch" href="/blog/assets/js/23.732a383c.js"><link rel="prefetch" href="/blog/assets/js/24.ec41e443.js"><link rel="prefetch" href="/blog/assets/js/25.860071a5.js"><link rel="prefetch" href="/blog/assets/js/26.8c4d2716.js"><link rel="prefetch" href="/blog/assets/js/27.11da77fc.js"><link rel="prefetch" href="/blog/assets/js/28.b487366d.js"><link rel="prefetch" href="/blog/assets/js/29.1803ef74.js"><link rel="prefetch" href="/blog/assets/js/3.51bdab14.js"><link rel="prefetch" href="/blog/assets/js/30.d02fbbe4.js"><link rel="prefetch" href="/blog/assets/js/31.56444d1d.js"><link rel="prefetch" href="/blog/assets/js/32.2a36d03a.js"><link rel="prefetch" href="/blog/assets/js/33.3725c3e0.js"><link rel="prefetch" href="/blog/assets/js/34.5f4e3aa4.js"><link rel="prefetch" href="/blog/assets/js/35.ef73c3f8.js"><link rel="prefetch" href="/blog/assets/js/36.fe990cea.js"><link rel="prefetch" href="/blog/assets/js/37.47682786.js"><link rel="prefetch" href="/blog/assets/js/38.baebdf75.js"><link rel="prefetch" href="/blog/assets/js/39.00ea206a.js"><link rel="prefetch" href="/blog/assets/js/40.23ec2501.js"><link rel="prefetch" href="/blog/assets/js/41.2daf7c45.js"><link rel="prefetch" href="/blog/assets/js/42.c6d1131e.js"><link rel="prefetch" href="/blog/assets/js/43.c9d5a03a.js"><link rel="prefetch" href="/blog/assets/js/44.cdc6a286.js"><link rel="prefetch" href="/blog/assets/js/45.902028e9.js"><link rel="prefetch" href="/blog/assets/js/46.553ccd2d.js"><link rel="prefetch" href="/blog/assets/js/47.f3680de2.js"><link rel="prefetch" href="/blog/assets/js/48.b3656314.js"><link rel="prefetch" href="/blog/assets/js/49.9e76608b.js"><link rel="prefetch" href="/blog/assets/js/5.a5abfe4e.js"><link rel="prefetch" href="/blog/assets/js/50.0cda1225.js"><link rel="prefetch" href="/blog/assets/js/51.84ebc08f.js"><link rel="prefetch" href="/blog/assets/js/52.943ab0ec.js"><link rel="prefetch" href="/blog/assets/js/53.81a3ff5a.js"><link rel="prefetch" href="/blog/assets/js/54.68037e26.js"><link rel="prefetch" href="/blog/assets/js/55.8ed30271.js"><link rel="prefetch" href="/blog/assets/js/56.ed07b1e0.js"><link rel="prefetch" href="/blog/assets/js/57.6b65606f.js"><link rel="prefetch" href="/blog/assets/js/58.396c2826.js"><link rel="prefetch" href="/blog/assets/js/59.396cafd6.js"><link rel="prefetch" href="/blog/assets/js/6.896d3ff4.js"><link rel="prefetch" href="/blog/assets/js/61.15e652da.js"><link rel="prefetch" href="/blog/assets/js/62.a3b62be1.js"><link rel="prefetch" href="/blog/assets/js/63.6341c331.js"><link rel="prefetch" href="/blog/assets/js/64.5ad96112.js"><link rel="prefetch" href="/blog/assets/js/65.c8815d96.js"><link rel="prefetch" href="/blog/assets/js/66.220d8298.js"><link rel="prefetch" href="/blog/assets/js/67.8f678d56.js"><link rel="prefetch" href="/blog/assets/js/68.86e3017e.js"><link rel="prefetch" href="/blog/assets/js/69.a732f6b2.js"><link rel="prefetch" href="/blog/assets/js/7.486b913b.js"><link rel="prefetch" href="/blog/assets/js/70.873d407a.js"><link rel="prefetch" href="/blog/assets/js/71.e40010a4.js"><link rel="prefetch" href="/blog/assets/js/72.aef34e7f.js"><link rel="prefetch" href="/blog/assets/js/73.34cb7bbc.js"><link rel="prefetch" href="/blog/assets/js/74.711ea49d.js"><link rel="prefetch" href="/blog/assets/js/75.1d427b3f.js"><link rel="prefetch" href="/blog/assets/js/8.3ff4efcd.js"><link rel="prefetch" href="/blog/assets/js/9.31831817.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.6822ba10.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/blog/images/logo.png" alt="Java 全栈知识体系" class="logo"> <span class="site-name can-hide">Java 全栈知识体系</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="这是提示语" class="dropdown-title"><span class="title">关于</span> <span class="arrow down"></span></button> <button type="button" aria-label="这是提示语" class="mobile-dropdown-title"><span class="title">关于</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/" class="nav-link">
+  下拉1
+</a></li><li class="dropdown-item"><!----> <a href="https://u1s1.vip" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  下拉2
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="这是提示语" class="dropdown-title"><span class="title">关于</span> <span class="arrow down"></span></button> <button type="button" aria-label="这是提示语" class="mobile-dropdown-title"><span class="title">关于</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/" class="nav-link">
+  下拉1
+</a></li><li class="dropdown-item"><!----> <a href="https://u1s1.vip" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  下拉2
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/blog/" class="sidebar-heading clickable router-link-active"><span>首页</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/全栈知识体系总览.html" class="sidebar-link">全栈知识体系总览</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/blog/部署与工具" class="sidebar-heading clickable open"><span>部署与工具</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><a href="/blog/部署与工具/工具和资源/" class="sidebar-heading clickable"><span>工具和资源</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group is-sub-group depth-1"><a href="/blog/部署与工具/常用开发工具详解" class="sidebar-heading clickable"><span>常用开发工具详解</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/部署与工具/常用开发工具详解/01 Git详解.html" class="sidebar-link">Git详解</a></li><li><a href="/blog/部署与工具/常用开发工具详解/02 Eclipse STS IDEA.html" class="sidebar-link">Eclipse STS IDEA</a></li><li><a href="/blog/部署与工具/常用开发工具详解/03 Maven项目构建.html" class="sidebar-link">Maven项目构建</a></li><li><a href="/blog/部署与工具/常用开发工具详解/04 Maven私有仓库Nexus.html" class="sidebar-link">Maven私有仓库Nexus</a></li><li><a href="/blog/部署与工具/常用开发工具详解/05 Jenkins+Github.html" class="sidebar-link">Jenkins+Github</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><a href="/blog/部署与工具/Linux相关/" class="sidebar-heading clickable open"><span>Linux相关</span> <span class="arrow down"></span></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/部署与工具/Linux相关/01 Linux基础知识.html" class="sidebar-link">Linux基础知识</a></li><li><a href="/blog/部署与工具/Linux相关/02 零拷贝技术.html" class="sidebar-link">零拷贝技术</a></li><li><a href="/blog/部署与工具/Linux相关/03 Linux常用.html" class="sidebar-link">Linux常用</a></li><li><a href="/blog/部署与工具/Linux相关/04 ab压力测试.html" class="sidebar-link">ab压力测试</a></li><li><a href="/blog/部署与工具/Linux相关/05 内存分析工具pmap.html" class="sidebar-link">内存分析工具pmap</a></li><li><a href="/blog/部署与工具/Linux相关/06 Curl使用.html" class="sidebar-link">Curl使用</a></li><li><a href="/blog/部署与工具/Linux相关/07 Linux创建自建服务.html" class="active sidebar-link">Linux创建自建服务</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/部署与工具/Linux相关/07 Linux创建自建服务.html#文件准备" class="sidebar-link">[#](#文件准备) 文件准备</a></li><li class="sidebar-sub-header"><a href="/blog/部署与工具/Linux相关/07 Linux创建自建服务.html#创建启动文件" class="sidebar-link">[#](#创建启动文件) 创建启动文件</a></li><li class="sidebar-sub-header"><a href="/blog/部署与工具/Linux相关/07 Linux创建自建服务.html#制作服务" class="sidebar-link">[#](#制作服务) 制作服务</a></li><li class="sidebar-sub-header"><a href="/blog/部署与工具/Linux相关/07 Linux创建自建服务.html#赋予权限" class="sidebar-link">[#](#赋予权限) 赋予权限</a></li><li class="sidebar-sub-header"><a href="/blog/部署与工具/Linux相关/07 Linux创建自建服务.html#开机自启" class="sidebar-link">[#](#开机自启) 开机自启</a></li><li class="sidebar-sub-header"><a href="/blog/部署与工具/Linux相关/07 Linux创建自建服务.html#查看端口" class="sidebar-link">[#](#查看端口) 查看端口</a></li><li class="sidebar-sub-header"><a href="/blog/部署与工具/Linux相关/07 Linux创建自建服务.html#查看防火墙" class="sidebar-link">[#](#查看防火墙) 查看防火墙</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><a href="/blog/部署与工具/Docker相关/" class="sidebar-heading clickable"><span>Docker相关</span> <span class="arrow right"></span></a> <!----></section></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="linux-linux创建自建服务"><a href="#linux-linux创建自建服务" class="header-anchor">#</a> Linux - Linux创建自建服务</h1> <blockquote><p>以打包自己开发的Java应用到Linux服务器，作为一个服务启动，并开启自启。 @pdai</p></blockquote> <ul><li>Linux - Linux创建自建服务
+<ul><li><a href="#%E6%96%87%E4%BB%B6%E5%87%86%E5%A4%87">文件准备</a></li> <li><a href="#%E5%88%9B%E5%BB%BA%E5%90%AF%E5%8A%A8%E6%96%87%E4%BB%B6">创建启动文件</a></li> <li><a href="#%E5%88%B6%E4%BD%9C%E6%9C%8D%E5%8A%A1">制作服务</a></li> <li><a href="#%E8%B5%8B%E4%BA%88%E6%9D%83%E9%99%90">赋予权限</a></li> <li><a href="#%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF">开机自启</a></li> <li><a href="#%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3">查看端口</a></li> <li><a href="#%E6%9F%A5%E7%9C%8B%E9%98%B2%E7%81%AB%E5%A2%99">查看防火墙</a></li></ul></li></ul> <h2 id="文件准备"><a href="#文件准备" class="header-anchor">#</a> <a href="#%E6%96%87%E4%BB%B6%E5%87%86%E5%A4%87">#</a> 文件准备</h2> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@docker opt<span class="token punctuation">]</span><span class="token comment"># tree -a</span>
+<span class="token builtin class-name">.</span>
+└── tech_doc
+    ├── bin
+    │   ├── logs
+    │   │   └── service.2018-10-31.log
+    │   └── tech_arch-0.0.1-RELEASE.jar
+    └── tech_doc
+</code></pre></div><h2 id="创建启动文件"><a href="#创建启动文件" class="header-anchor">#</a> <a href="#%E5%88%9B%E5%BB%BA%E5%90%AF%E5%8A%A8%E6%96%87%E4%BB%B6">#</a> 创建启动文件</h2> <p>tech_doc</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@docker opt<span class="token punctuation">]</span><span class="token comment"># cat tech_doc/tech_doc</span>
+<span class="token comment">#!/bin/sh</span>
+
+<span class="token comment">#------------------------------------------------</span>
+<span class="token comment"># function: services start</span>
+<span class="token comment"># author: pdai</span>
+<span class="token comment"># home: /opt/tech_doc/bin</span>
+<span class="token comment"># log: /var/log/tech_doc/process</span>
+<span class="token comment">#------------------------------------------------</span>
+
+<span class="token assign-left variable"><span class="token environment constant">HOME</span></span><span class="token operator">=</span>/opt/tech_doc/bin
+<span class="token assign-left variable">LOGHOME</span><span class="token operator">=</span>/var/log/tech_doc/process
+
+
+<span class="token keyword">function</span> <span class="token function-name function">serviceLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token assign-left variable">b</span><span class="token operator">=</span><span class="token string">''</span>
+  <span class="token assign-left variable">i</span><span class="token operator">=</span><span class="token number">0</span>
+  <span class="token keyword">while</span> <span class="token punctuation">[</span> <span class="token variable">$i</span> <span class="token parameter variable">-le</span>  <span class="token number">100</span> <span class="token punctuation">]</span>
+  <span class="token keyword">do</span>
+      <span class="token builtin class-name">printf</span> <span class="token string">&quot;<span class="token variable">$1</span>:[%-50s]%d%%<span class="token entity" title="\r">\r</span>&quot;</span> <span class="token variable">$b</span> <span class="token variable">$i</span>
+      <span class="token function">sleep</span> <span class="token number">0.3</span>
+      <span class="token assign-left variable">i</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">expr</span> <span class="token number">2</span> + $i<span class="token variable">`</span></span>
+      <span class="token assign-left variable">b</span><span class="token operator">=</span><span class="token comment">#$b</span>
+  <span class="token keyword">done</span>
+  <span class="token builtin class-name">echo</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function-name function">svcStart</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">&quot;Starting <span class="token variable">$2</span> ...&quot;</span>
+  <span class="token builtin class-name">cd</span> <span class="token variable">$1</span>
+  <span class="token assign-left variable">PID</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">ps</span> <span class="token parameter variable">-ef</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">&quot;<span class="token variable">$4</span>&quot;</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token parameter variable">-v</span> <span class="token function">grep</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print $2}'</span><span class="token variable">)</span></span>
+  <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-z</span> <span class="token string">&quot;<span class="token variable">$PID</span>&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+          <span class="token function">nohup</span> <span class="token function">java</span> <span class="token parameter variable">-jar</span> <span class="token variable">$3</span>  <span class="token operator">&gt;</span> <span class="token variable">$5</span> <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span> <span class="token variable">$6</span> <span class="token operator">&amp;</span>
+    serviceLoad <span class="token variable">$SERVICE_NAME</span>
+          <span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$2</span> started ...&quot;</span>
+  <span class="token keyword">else</span>
+          <span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$2</span> is already running ...&quot;</span>
+  <span class="token keyword">fi</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function-name function">svcStop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token assign-left variable">PID</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">ps</span> <span class="token parameter variable">-ef</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">&quot;<span class="token variable">$1</span>&quot;</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token parameter variable">-v</span> <span class="token function">grep</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print $2}'</span><span class="token variable">)</span></span>
+  <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-z</span> <span class="token string">&quot;<span class="token variable">$PID</span>&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+          <span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$2</span> already stopped ...&quot;</span>
+  <span class="token keyword">else</span>
+    <span class="token function">kill</span> <span class="token variable">$PID</span>
+        <span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$2</span> is stoping ...&quot;</span>
+  <span class="token keyword">fi</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function-name function">do_start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">for</span> <span class="token for-or-select variable">FILE</span> <span class="token keyword">in</span> <span class="token variable"><span class="token variable">`</span><span class="token function">ls</span> <span class="token environment constant">$HOME</span> <span class="token operator">|</span> <span class="token function">grep</span> jar<span class="token variable">`</span></span>
+  <span class="token keyword">do</span>
+    <span class="token assign-left variable">FILE_NAME</span><span class="token operator">=</span><span class="token variable">$FILE</span>
+    <span class="token assign-left variable">SERVICE_JAR_PACKAGE_PATH</span><span class="token operator">=</span><span class="token environment constant">$HOME</span>/<span class="token variable">$FILE</span>
+    <span class="token assign-left variable">SERVICE_NAME</span><span class="token operator">=</span><span class="token variable">${FILE_NAME<span class="token operator">%</span>-<span class="token punctuation">[</span>0-9<span class="token punctuation">]</span>*}</span>
+    <span class="token assign-left variable">SERVICE_LOG_PATH</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">$LOGHOME</span>/<span class="token variable">$SERVICE_NAME</span>.log&quot;</span>
+    <span class="token assign-left variable">SERVICE_ERR_LOG_PATH</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">$LOGHOME</span>/<span class="token variable">$SERVICE_NAME</span>.err&quot;</span>
+
+    svcStart <span class="token environment constant">$HOME</span> <span class="token variable">$SERVICE_NAME</span> <span class="token variable">$SERVICE_JAR_PACKAGE_PATH</span> <span class="token variable">$FILE_NAME</span> <span class="token variable">$SERVICE_LOG_PATH</span> <span class="token variable">$SERVICE_ERR_LOG_PATH</span>
+  <span class="token keyword">done</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function-name function">do_stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token for-or-select variable">FILE</span> <span class="token keyword">in</span> <span class="token variable"><span class="token variable">`</span><span class="token function">ls</span> <span class="token environment constant">$HOME</span> <span class="token operator">|</span> <span class="token function">grep</span> jar<span class="token variable">`</span></span>
+  <span class="token keyword">do</span>
+    <span class="token assign-left variable">FILE_NAME</span><span class="token operator">=</span><span class="token variable">$FILE</span>
+    <span class="token assign-left variable">SERVICE_NAME</span><span class="token operator">=</span><span class="token variable">${FILE_NAME<span class="token operator">%</span>-<span class="token punctuation">[</span>0-9<span class="token punctuation">]</span>*}</span>
+    <span class="token assign-left variable">SERVICE_PID_PATH</span><span class="token operator">=</span><span class="token string">&quot;/tmp/<span class="token variable">$SERVICE_NAME</span>.pid&quot;</span>
+
+    svcStop <span class="token variable">$FILE_NAME</span> <span class="token variable">$SERVICE_NAME</span>
+    <span class="token function">sleep</span> <span class="token number">1</span>
+  <span class="token keyword">done</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function-name function">do_check</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token for-or-select variable">FILE</span> <span class="token keyword">in</span> <span class="token variable"><span class="token variable">`</span><span class="token function">ls</span> <span class="token environment constant">$HOME</span> <span class="token operator">|</span> <span class="token function">grep</span> jar<span class="token variable">`</span></span>
+  <span class="token keyword">do</span>
+    <span class="token assign-left variable">FILE_NAME</span><span class="token operator">=</span><span class="token variable">$FILE</span>
+    <span class="token assign-left variable">SERVICE_NAME</span><span class="token operator">=</span><span class="token variable">${FILE_NAME<span class="token operator">%</span>-<span class="token punctuation">[</span>0-9<span class="token punctuation">]</span>*}</span>
+    <span class="token assign-left variable">PID</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">ps</span> <span class="token parameter variable">-ef</span> <span class="token operator">|</span> <span class="token function">grep</span> $FILE_NAME <span class="token operator">|</span> <span class="token function">grep</span> <span class="token parameter variable">-v</span> <span class="token function">grep</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print $2}'</span><span class="token variable">)</span></span>
+  <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-z</span> <span class="token string">&quot;<span class="token variable">$PID</span>&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+          <span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$SERVICE_NAME</span> <span class="token variable">$PID</span> is not running ...&quot;</span>
+  <span class="token keyword">else</span>
+        <span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$SERVICE_NAME</span> <span class="token variable">$PID</span> is running ...&quot;</span>
+  <span class="token keyword">fi</span>
+
+    <span class="token function">sleep</span> <span class="token number">1</span>
+  <span class="token keyword">done</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">case</span> <span class="token string">&quot;<span class="token variable">$1</span>&quot;</span> <span class="token keyword">in</span>
+    start<span class="token punctuation">)</span>
+
+        do_start
+        <span class="token builtin class-name">echo</span> start successful
+
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    stop<span class="token punctuation">)</span>
+
+        do_stop
+        <span class="token builtin class-name">echo</span> stop successful
+
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    restart<span class="token punctuation">)</span>
+
+        do_stop
+              <span class="token function">sleep</span> <span class="token number">2</span>
+        do_start
+        <span class="token builtin class-name">echo</span> restart successful
+
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    status<span class="token punctuation">)</span>
+
+        do_check
+
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    *<span class="token punctuation">)</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;Usage: {start|stop|restart|status}&quot;</span> <span class="token operator">&gt;</span><span class="token file-descriptor important">&amp;2</span>
+    <span class="token builtin class-name">exit</span> <span class="token number">3</span>
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token keyword">esac</span>
+<span class="token builtin class-name">exit</span> <span class="token number">0</span>
+</code></pre></div><h2 id="制作服务"><a href="#制作服务" class="header-anchor">#</a> <a href="#%E5%88%B6%E4%BD%9C%E6%9C%8D%E5%8A%A1">#</a> 制作服务</h2> <p>在init.d下创建服务</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@docker init.d<span class="token punctuation">]</span><span class="token comment"># tree -a</span>
+<span class="token builtin class-name">.</span>
+├── functions
+├── netconsole
+├── network
+├── README
+└── tech-doc
+</code></pre></div><p>tech-doc内容如下:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@docker opt<span class="token punctuation">]</span><span class="token comment"># cd /etc/init.d</span>
+<span class="token punctuation">[</span>root@docker init.d<span class="token punctuation">]</span><span class="token comment"># ls</span>
+functions  netconsole  network  README  tech-doc
+<span class="token punctuation">[</span>root@docker init.d<span class="token punctuation">]</span><span class="token comment"># tree -a</span>
+<span class="token builtin class-name">.</span>
+├── functions
+├── netconsole
+├── network
+├── README
+└── tech-doc
+
+<span class="token number">0</span> directories, <span class="token number">5</span> files
+<span class="token punctuation">[</span>root@docker init.d<span class="token punctuation">]</span><span class="token comment"># ^C</span>
+<span class="token punctuation">[</span>root@docker init.d<span class="token punctuation">]</span><span class="token comment"># cat tech-doc</span>
+<span class="token comment">#!/bin/sh</span>
+<span class="token comment">#</span>
+<span class="token comment"># /etc/init.d/tech-doc</span>
+<span class="token comment"># chkconfig: 2345 60 20</span>
+<span class="token comment"># description: ms.</span>
+<span class="token comment"># processname: tech-doc</span>
+
+<span class="token assign-left variable">SCRIPT_HOME</span><span class="token operator">=</span>/opt/tech_doc
+
+<span class="token keyword">case</span> <span class="token variable">$1</span> <span class="token keyword">in</span>
+    start<span class="token punctuation">)</span>
+        <span class="token function">sh</span> <span class="token variable">$SCRIPT_HOME</span>/tech_doc start
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    stop<span class="token punctuation">)</span>
+        <span class="token function">sh</span> <span class="token variable">$SCRIPT_HOME</span>/tech_doc stop
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    restart<span class="token punctuation">)</span>
+        <span class="token function">sh</span> <span class="token variable">$SCRIPT_HOME</span>/tech_doc stop
+        <span class="token function">sh</span> <span class="token variable">$SCRIPT_HOME</span>/tech_doc start
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    status<span class="token punctuation">)</span>
+        <span class="token function">sh</span> <span class="token variable">$SCRIPT_HOME</span>/tech_doc status
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    *<span class="token punctuation">)</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;Usage: {start|stop|restart|status}&quot;</span> <span class="token operator">&gt;</span><span class="token file-descriptor important">&amp;2</span>
+    <span class="token builtin class-name">exit</span> <span class="token number">3</span>
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token keyword">esac</span>
+<span class="token builtin class-name">exit</span> <span class="token number">0</span>
+</code></pre></div><h2 id="赋予权限"><a href="#赋予权限" class="header-anchor">#</a> <a href="#%E8%B5%8B%E4%BA%88%E6%9D%83%E9%99%90">#</a> 赋予权限</h2> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">chmod</span> <span class="token number">777</span> /etc/init.d/tech-doc
+</code></pre></div><h2 id="开机自启"><a href="#开机自启" class="header-anchor">#</a> <a href="#%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF">#</a> 开机自启</h2> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">chkconfig</span> <span class="token parameter variable">--list</span>
+<span class="token function">chkconfig</span> tech-doc on
+</code></pre></div><h2 id="查看端口"><a href="#查看端口" class="header-anchor">#</a> <a href="#%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3">#</a> 查看端口</h2> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">netstat</span> <span class="token parameter variable">-nltp</span>
+</code></pre></div><h2 id="查看防火墙"><a href="#查看防火墙" class="header-anchor">#</a> <a href="#%E6%9F%A5%E7%9C%8B%E9%98%B2%E7%81%AB%E5%A2%99">#</a> 查看防火墙</h2> <div class="language-bash extra-class"><pre class="language-bash"><code>systemctl status firewalld
+</code></pre></div><hr> <p>著作权归@pdai所有 原文链接：https://pdai.tech/md/devops/linux/linux-service.html</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/部署与工具/Linux相关/06 Curl使用.html" class="prev">
+        Curl使用
+      </a></span> <span class="next"><a href="/blog/部署与工具/Docker相关/01 Overview.html">
+        Overview
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.ba0a3011.js" defer></script><script src="/blog/assets/js/4.a5b48594.js" defer></script><script src="/blog/assets/js/60.7468b775.js" defer></script>
+  </body>
+</html>

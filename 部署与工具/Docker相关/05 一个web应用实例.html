@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Docker基础 - 一个web应用实例 | Java 全栈知识体系</title>
+    <meta name="generator" content="VuePress 1.9.8">
+    <link rel="icon" href="/blog/images/favorite.ico">
+    <meta name="description" content="对我妻子的爱是让我不断前进的动力，使我的人生少了一份恐惧，多了一份勇气。愿[执子之手, 与子偕老  To: LQ] ">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.6822ba10.css" as="style"><link rel="preload" href="/blog/assets/js/app.ba0a3011.js" as="script"><link rel="preload" href="/blog/assets/js/4.a5b48594.js" as="script"><link rel="preload" href="/blog/assets/js/49.9e76608b.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.911987ed.js"><link rel="prefetch" href="/blog/assets/js/11.8c13b615.js"><link rel="prefetch" href="/blog/assets/js/12.b17d390e.js"><link rel="prefetch" href="/blog/assets/js/13.7109526b.js"><link rel="prefetch" href="/blog/assets/js/14.e4ce975e.js"><link rel="prefetch" href="/blog/assets/js/15.da7d650d.js"><link rel="prefetch" href="/blog/assets/js/16.9635a830.js"><link rel="prefetch" href="/blog/assets/js/17.7d32a3b3.js"><link rel="prefetch" href="/blog/assets/js/18.fdb5b421.js"><link rel="prefetch" href="/blog/assets/js/19.420c5e02.js"><link rel="prefetch" href="/blog/assets/js/2.3871e21e.js"><link rel="prefetch" href="/blog/assets/js/20.39a01f59.js"><link rel="prefetch" href="/blog/assets/js/21.4db56d7a.js"><link rel="prefetch" href="/blog/assets/js/22.a662eef6.js"><link rel="prefetch" href="/blog/assets/js/23.732a383c.js"><link rel="prefetch" href="/blog/assets/js/24.ec41e443.js"><link rel="prefetch" href="/blog/assets/js/25.860071a5.js"><link rel="prefetch" href="/blog/assets/js/26.8c4d2716.js"><link rel="prefetch" href="/blog/assets/js/27.11da77fc.js"><link rel="prefetch" href="/blog/assets/js/28.b487366d.js"><link rel="prefetch" href="/blog/assets/js/29.1803ef74.js"><link rel="prefetch" href="/blog/assets/js/3.51bdab14.js"><link rel="prefetch" href="/blog/assets/js/30.d02fbbe4.js"><link rel="prefetch" href="/blog/assets/js/31.56444d1d.js"><link rel="prefetch" href="/blog/assets/js/32.2a36d03a.js"><link rel="prefetch" href="/blog/assets/js/33.3725c3e0.js"><link rel="prefetch" href="/blog/assets/js/34.5f4e3aa4.js"><link rel="prefetch" href="/blog/assets/js/35.ef73c3f8.js"><link rel="prefetch" href="/blog/assets/js/36.fe990cea.js"><link rel="prefetch" href="/blog/assets/js/37.47682786.js"><link rel="prefetch" href="/blog/assets/js/38.baebdf75.js"><link rel="prefetch" href="/blog/assets/js/39.00ea206a.js"><link rel="prefetch" href="/blog/assets/js/40.23ec2501.js"><link rel="prefetch" href="/blog/assets/js/41.2daf7c45.js"><link rel="prefetch" href="/blog/assets/js/42.c6d1131e.js"><link rel="prefetch" href="/blog/assets/js/43.c9d5a03a.js"><link rel="prefetch" href="/blog/assets/js/44.cdc6a286.js"><link rel="prefetch" href="/blog/assets/js/45.902028e9.js"><link rel="prefetch" href="/blog/assets/js/46.553ccd2d.js"><link rel="prefetch" href="/blog/assets/js/47.f3680de2.js"><link rel="prefetch" href="/blog/assets/js/48.b3656314.js"><link rel="prefetch" href="/blog/assets/js/5.a5abfe4e.js"><link rel="prefetch" href="/blog/assets/js/50.0cda1225.js"><link rel="prefetch" href="/blog/assets/js/51.84ebc08f.js"><link rel="prefetch" href="/blog/assets/js/52.943ab0ec.js"><link rel="prefetch" href="/blog/assets/js/53.81a3ff5a.js"><link rel="prefetch" href="/blog/assets/js/54.68037e26.js"><link rel="prefetch" href="/blog/assets/js/55.8ed30271.js"><link rel="prefetch" href="/blog/assets/js/56.ed07b1e0.js"><link rel="prefetch" href="/blog/assets/js/57.6b65606f.js"><link rel="prefetch" href="/blog/assets/js/58.396c2826.js"><link rel="prefetch" href="/blog/assets/js/59.396cafd6.js"><link rel="prefetch" href="/blog/assets/js/6.896d3ff4.js"><link rel="prefetch" href="/blog/assets/js/60.7468b775.js"><link rel="prefetch" href="/blog/assets/js/61.15e652da.js"><link rel="prefetch" href="/blog/assets/js/62.a3b62be1.js"><link rel="prefetch" href="/blog/assets/js/63.6341c331.js"><link rel="prefetch" href="/blog/assets/js/64.5ad96112.js"><link rel="prefetch" href="/blog/assets/js/65.c8815d96.js"><link rel="prefetch" href="/blog/assets/js/66.220d8298.js"><link rel="prefetch" href="/blog/assets/js/67.8f678d56.js"><link rel="prefetch" href="/blog/assets/js/68.86e3017e.js"><link rel="prefetch" href="/blog/assets/js/69.a732f6b2.js"><link rel="prefetch" href="/blog/assets/js/7.486b913b.js"><link rel="prefetch" href="/blog/assets/js/70.873d407a.js"><link rel="prefetch" href="/blog/assets/js/71.e40010a4.js"><link rel="prefetch" href="/blog/assets/js/72.aef34e7f.js"><link rel="prefetch" href="/blog/assets/js/73.34cb7bbc.js"><link rel="prefetch" href="/blog/assets/js/74.711ea49d.js"><link rel="prefetch" href="/blog/assets/js/75.1d427b3f.js"><link rel="prefetch" href="/blog/assets/js/8.3ff4efcd.js"><link rel="prefetch" href="/blog/assets/js/9.31831817.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.6822ba10.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/blog/images/logo.png" alt="Java 全栈知识体系" class="logo"> <span class="site-name can-hide">Java 全栈知识体系</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="这是提示语" class="dropdown-title"><span class="title">关于</span> <span class="arrow down"></span></button> <button type="button" aria-label="这是提示语" class="mobile-dropdown-title"><span class="title">关于</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/" class="nav-link">
+  下拉1
+</a></li><li class="dropdown-item"><!----> <a href="https://u1s1.vip" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  下拉2
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="这是提示语" class="dropdown-title"><span class="title">关于</span> <span class="arrow down"></span></button> <button type="button" aria-label="这是提示语" class="mobile-dropdown-title"><span class="title">关于</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/" class="nav-link">
+  下拉1
+</a></li><li class="dropdown-item"><!----> <a href="https://u1s1.vip" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  下拉2
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/blog/" class="sidebar-heading clickable router-link-active"><span>首页</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/全栈知识体系总览.html" class="sidebar-link">全栈知识体系总览</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/blog/部署与工具" class="sidebar-heading clickable open"><span>部署与工具</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><a href="/blog/部署与工具/工具和资源/" class="sidebar-heading clickable"><span>工具和资源</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group is-sub-group depth-1"><a href="/blog/部署与工具/常用开发工具详解" class="sidebar-heading clickable"><span>常用开发工具详解</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/部署与工具/常用开发工具详解/01 Git详解.html" class="sidebar-link">Git详解</a></li><li><a href="/blog/部署与工具/常用开发工具详解/02 Eclipse STS IDEA.html" class="sidebar-link">Eclipse STS IDEA</a></li><li><a href="/blog/部署与工具/常用开发工具详解/03 Maven项目构建.html" class="sidebar-link">Maven项目构建</a></li><li><a href="/blog/部署与工具/常用开发工具详解/04 Maven私有仓库Nexus.html" class="sidebar-link">Maven私有仓库Nexus</a></li><li><a href="/blog/部署与工具/常用开发工具详解/05 Jenkins+Github.html" class="sidebar-link">Jenkins+Github</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><a href="/blog/部署与工具/Linux相关/" class="sidebar-heading clickable"><span>Linux相关</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><a href="/blog/部署与工具/Docker相关/" class="sidebar-heading clickable open"><span>Docker相关</span> <span class="arrow down"></span></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/部署与工具/Docker相关/01 Overview.html" class="sidebar-link">Overview</a></li><li><a href="/blog/部署与工具/Docker相关/02 Docker Vs 虚拟机.html" class="sidebar-link">Docker Vs 虚拟机</a></li><li><a href="/blog/部署与工具/Docker相关/03 入门基础和Helloworld.html" class="sidebar-link">入门基础和Helloworld</a></li><li><a href="/blog/部署与工具/Docker相关/04 仓库 镜像 容器详解.html" class="sidebar-link">仓库 镜像 容器详解</a></li><li><a href="/blog/部署与工具/Docker相关/05 一个web应用实例.html" class="active sidebar-link">一个web应用实例</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/部署与工具/Docker相关/05 一个web应用实例.html#一个web-应用运行和访问" class="sidebar-link">[#](#一个web-应用运行和访问) 一个web 应用运行和访问</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/部署与工具/Docker相关/05 一个web应用实例.html#运行一个-web-应用" class="sidebar-link">[#](#运行一个-web-应用) 运行一个 web 应用</a></li><li class="sidebar-sub-header"><a href="/blog/部署与工具/Docker相关/05 一个web应用实例.html#访问webapp" class="sidebar-link">[#](#访问webapp) 访问webapp</a></li><li class="sidebar-sub-header"><a href="/blog/部署与工具/Docker相关/05 一个web应用实例.html#设置自定义映射端口" class="sidebar-link">[#](#设置自定义映射端口) 设置自定义映射端口</a></li></ul></li><li class="sidebar-sub-header"><a href="/blog/部署与工具/Docker相关/05 一个web应用实例.html#其它常用功能" class="sidebar-link">[#](#其它常用功能) 其它常用功能</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/部署与工具/Docker相关/05 一个web应用实例.html#查看web-应用网络端口" class="sidebar-link">[#](#查看web-应用网络端口) 查看web 应用网络端口</a></li><li class="sidebar-sub-header"><a href="/blog/部署与工具/Docker相关/05 一个web应用实例.html#查看-web-应用程序日志" class="sidebar-link">[#](#查看-web-应用程序日志) 查看 WEB 应用程序日志</a></li><li class="sidebar-sub-header"><a href="/blog/部署与工具/Docker相关/05 一个web应用实例.html#查看web应用程序容器的进程" class="sidebar-link">[#](#查看web应用程序容器的进程) 查看WEB应用程序容器的进程</a></li><li class="sidebar-sub-header"><a href="/blog/部署与工具/Docker相关/05 一个web应用实例.html#检查-web-应用程序" class="sidebar-link">[#](#检查-web-应用程序) 检查 WEB 应用程序</a></li><li class="sidebar-sub-header"><a href="/blog/部署与工具/Docker相关/05 一个web应用实例.html#停止-web-应用容器" class="sidebar-link">[#](#停止-web-应用容器) 停止 WEB 应用容器</a></li><li class="sidebar-sub-header"><a href="/blog/部署与工具/Docker相关/05 一个web应用实例.html#重启web应用容器" class="sidebar-link">[#](#重启web应用容器) 重启WEB应用容器</a></li><li class="sidebar-sub-header"><a href="/blog/部署与工具/Docker相关/05 一个web应用实例.html#移除web应用容器" class="sidebar-link">[#](#移除web应用容器) 移除WEB应用容器</a></li></ul></li><li class="sidebar-sub-header"><a href="/blog/部署与工具/Docker相关/05 一个web应用实例.html#与其它容器-db容器-互联" class="sidebar-link">[#](#与其它容器-db容器-互联) 与其它容器（DB容器）互联</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/部署与工具/Docker相关/05 一个web应用实例.html#与数据库容器互联" class="sidebar-link">[#](#与数据库容器互联) 与数据库容器互联</a></li><li class="sidebar-sub-header"><a href="/blog/部署与工具/Docker相关/05 一个web应用实例.html#容器公开的连接信息" class="sidebar-link">[#](#容器公开的连接信息) 容器公开的连接信息</a></li></ul></li></ul></li><li><a href="/blog/部署与工具/Docker相关/06 Docker网络使用和配置.html" class="sidebar-link">Docker网络使用和配置</a></li><li><a href="/blog/部署与工具/Docker相关/07 Docker数据卷和数据管理.html" class="sidebar-link">Docker数据卷和数据管理</a></li><li><a href="/blog/部署与工具/Docker相关/08 Dockerfile详解.html" class="sidebar-link">Dockerfile详解</a></li><li><a href="/blog/部署与工具/Docker相关/09 DockerCompose详解.html" class="sidebar-link">DockerCompose详解</a></li><li><a href="/blog/部署与工具/Docker相关/10 Docker底层实现.html" class="sidebar-link">Docker底层实现</a></li><li><a href="/blog/部署与工具/Docker相关/11 Docker安全相关.html" class="sidebar-link">Docker安全相关</a></li></ul></section></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="docker基础-一个web应用实例"><a href="#docker基础-一个web应用实例" class="header-anchor">#</a> Docker基础 - 一个web应用实例</h1> <blockquote><p>通过上文我们已经基本了解了docker的结构（仓库，镜像，容器）以及跑docker应用了；本文将通过介绍一个web应用：向你展示如何进行主机与web容器之间的通信，这是web开发者常用的；第二，贯穿上文中内容, 且为我们后续讲解网络提供基础。@pdai</p></blockquote> <ul><li>Docker基础 - 一个web应用实例
+<ul><li>一个web 应用运行和访问
+<ul><li><a href="#%E8%BF%90%E8%A1%8C%E4%B8%80%E4%B8%AA-web-%E5%BA%94%E7%94%A8">运行一个 web 应用</a></li> <li><a href="#%E8%AE%BF%E9%97%AEwebapp">访问webapp</a></li> <li><a href="#%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E6%98%A0%E5%B0%84%E7%AB%AF%E5%8F%A3">设置自定义映射端口</a></li></ul></li> <li>其它常用功能
+<ul><li><a href="#%E6%9F%A5%E7%9C%8Bweb-%E5%BA%94%E7%94%A8%E7%BD%91%E7%BB%9C%E7%AB%AF%E5%8F%A3">查看web 应用网络端口</a></li> <li><a href="#%E6%9F%A5%E7%9C%8B-web-%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%97%A5%E5%BF%97">查看 WEB 应用程序日志</a></li> <li><a href="#%E6%9F%A5%E7%9C%8Bweb%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%AE%B9%E5%99%A8%E7%9A%84%E8%BF%9B%E7%A8%8B">查看WEB应用程序容器的进程</a></li> <li><a href="#%E6%A3%80%E6%9F%A5-web-%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F">检查 WEB 应用程序</a></li> <li><a href="#%E5%81%9C%E6%AD%A2-web-%E5%BA%94%E7%94%A8%E5%AE%B9%E5%99%A8">停止 WEB 应用容器</a></li> <li><a href="#%E9%87%8D%E5%90%AFweb%E5%BA%94%E7%94%A8%E5%AE%B9%E5%99%A8">重启WEB应用容器</a></li> <li><a href="#%E7%A7%BB%E9%99%A4web%E5%BA%94%E7%94%A8%E5%AE%B9%E5%99%A8">移除WEB应用容器</a></li></ul></li> <li>与其它容器（DB容器）互联
+<ul><li><a href="#%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%B9%E5%99%A8%E4%BA%92%E8%81%94">与数据库容器互联</a></li> <li>容器公开的连接信息
+<ul><li><a href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">环境变量</a></li> <li><a href="#hosts-%E6%96%87%E4%BB%B6">hosts 文件</a></li></ul></li></ul></li></ul></li></ul> <h2 id="一个web-应用运行和访问"><a href="#一个web-应用运行和访问" class="header-anchor">#</a> <a href="#%E4%B8%80%E4%B8%AAweb-%E5%BA%94%E7%94%A8%E8%BF%90%E8%A1%8C%E5%92%8C%E8%AE%BF%E9%97%AE">#</a> 一个web 应用运行和访问</h2> <h3 id="运行一个-web-应用"><a href="#运行一个-web-应用" class="header-anchor">#</a> <a href="#%E8%BF%90%E8%A1%8C%E4%B8%80%E4%B8%AA-web-%E5%BA%94%E7%94%A8">#</a> 运行一个 web 应用</h3> <blockquote><p>我们只需要找一个webapp的镜像即可，无需自己再写个程序啥的。接下来让我们尝试使用 docker 构建一个 web 应用程序。</p></blockquote> <p>这里找了一个<code>training/webapp</code>，它是将在docker容器中运行一个 Python Flask web应用。</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker pull training/webapp</span>
+Using default tag: latest
+latest: Pulling from training/webapp
+Image docker.io/training/webapp:latest uses outdated schema1 manifest format. Please upgrade to a schema2 image <span class="token keyword">for</span> better future compatibility. More information at https://docs.docker.com/registry/spec/deprecated-schema-v1/
+e190868d63f8: Pull complete
+909cd34c6fd7: Pull complete
+0b9bfabab7c1: Pull complete
+a3ed95caeb02: Pull complete
+10bbbc0fc0ff: Pull complete
+fca59b508e9f: Pull complete
+e7ae2541b15b: Pull complete
+9dd97ef58ce9: Pull complete
+a4c1b0cb7af7: Pull complete
+Digest: sha256:06e9c1983bd6d5db5fba376ccd63bfa529e8d02f23d5079b8f74a616308fb11d
+Status: Downloaded newer image <span class="token keyword">for</span> training/webapp:latest
+docker.io/training/webapp:latest
+<span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker images | grep webapp</span>
+training/webapp     latest              6fae60ef3446        <span class="token number">4</span> years ago         349MB
+</code></pre></div><p>紧接着，我们启动这个webapp</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker run -d -P training/webapp python app.py</span>
+ec3eb9ae218494d5aa5902c1ca4435733567b5e81319f02e5d2509d45cbc25da
+<span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker ps</span>
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                     NAMES
+ec3eb9ae2184        training/webapp     <span class="token string">&quot;python app.py&quot;</span>     <span class="token number">18</span> seconds ago      Up <span class="token number">17</span> seconds       <span class="token number">0.0</span>.0.0:32768-<span class="token operator">&gt;</span><span class="token number">5000</span>/tcp   gifted_agnesi
+</code></pre></div><p>参数说明:</p> <ul><li><code>-d</code>:让容器在后台运行。</li> <li><code>-P</code>:将容器内部使用的网络端口映射到我们使用的主机上。</li></ul> <h3 id="访问webapp"><a href="#访问webapp" class="header-anchor">#</a> <a href="#%E8%AE%BF%E9%97%AEwebapp">#</a> 访问webapp</h3> <blockquote><p>我们注意看上述PORTS部分为0.0.0.0:32769-&gt;5000/tcp</p></blockquote> <p>Docker 开放了 5000 端口（默认 Python Flask 端口）映射到主机端口 32768 上。</p> <ul><li><strong>从主机上看</strong>，它应该暴露了<strong>端口32768</strong></li></ul> <p>所以我们来验证下：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># netstat | grep 32768</span>
+<span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># netstat -nltp | grep 32768</span>
+tcp6       <span class="token number">0</span>      <span class="token number">0</span> :::32768                :::*                    LISTEN      <span class="token number">2227</span>/docker-proxy
+<span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># curl localhost:32768</span>
+Hello world<span class="token operator">!</span>
+</code></pre></div><p>这意味着，你浏览器你可以输入<code>localhost:32768</code>访问这个页面。</p> <ul><li><strong>从容器内部看</strong>，它应该有一个<strong>端口5000</strong></li></ul> <p>我们再进容器验证下：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker exec -it ec3eb9ae2184 /bin/bash</span>
+root@ec3eb9ae2184:/opt/webapp<span class="token comment"># netstat -nltp</span>
+Active Internet connections <span class="token punctuation">(</span>only servers<span class="token punctuation">)</span>
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        <span class="token number">0</span>      <span class="token number">0</span> <span class="token number">0.0</span>.0.0:5000            <span class="token number">0.0</span>.0.0:*               LISTEN      <span class="token number">1</span>/python
+</code></pre></div><p>所以我们的理解是对的。</p> <h3 id="设置自定义映射端口"><a href="#设置自定义映射端口" class="header-anchor">#</a> <a href="#%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E6%98%A0%E5%B0%84%E7%AB%AF%E5%8F%A3">#</a> 设置自定义映射端口</h3> <blockquote><p>我们发现，通过 <code>-P</code>参数映射到主机上的端口是随机，能否自定义端口呢？</p></blockquote> <p>我们可以通过 -p 参数来设置不一样的端口；为了对比，我们再起一个容器实例：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker run -d -p 5001:5000 training/webapp python app.py</span>
+5da3588d5bc43a9ed3aa61fb87f98220c9719d2879b616404d443aaae6cee77a
+<span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker ps</span>
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                     NAMES
+5da3588d5bc4        training/webapp     <span class="token string">&quot;python app.py&quot;</span>     <span class="token number">33</span> seconds ago      Up <span class="token number">31</span> seconds       <span class="token number">0.0</span>.0.0:5001-<span class="token operator">&gt;</span><span class="token number">5000</span>/tcp    hopeful_bardeen
+ec3eb9ae2184        training/webapp     <span class="token string">&quot;python app.py&quot;</span>     <span class="token number">22</span> minutes ago      Up <span class="token number">22</span> minutes       <span class="token number">0.0</span>.0.0:32768-<span class="token operator">&gt;</span><span class="token number">5000</span>/tcp   gifted_agnesi
+<span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># netstat -nltp | grep 5001</span>
+tcp6       <span class="token number">0</span>      <span class="token number">0</span> :::5001                 :::*                    LISTEN      <span class="token number">2591</span>/docker-proxy
+<span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># curl localhost:5001</span>
+Hello world<span class="token operator">!</span>
+</code></pre></div><p>所以你看到跑了两个内部端口都是5000的web实例，新的容器内部的 5000 端口映射到我们本地主机的 5001 端口上。</p> <h2 id="其它常用功能"><a href="#其它常用功能" class="header-anchor">#</a> <a href="#%E5%85%B6%E5%AE%83%E5%B8%B8%E7%94%A8%E5%8A%9F%E8%83%BD">#</a> 其它常用功能</h2> <h3 id="查看web-应用网络端口"><a href="#查看web-应用网络端口" class="header-anchor">#</a> <a href="#%E6%9F%A5%E7%9C%8Bweb-%E5%BA%94%E7%94%A8%E7%BD%91%E7%BB%9C%E7%AB%AF%E5%8F%A3">#</a> 查看web 应用网络端口</h3> <blockquote><p>通过 docker ps 命令可以查看到容器的端口映射，docker 还提供了另一个快捷方式 docker port，使用 docker port 可以查看指定 （ID 或者名字）容器的某个确定端口映射到宿主机的端口号。</p></blockquote> <p>上面我们创建的 web 应用容器 ID 为 5da3588d5bc4 名字为 hopeful_bardeen。</p> <p>我可以这样查看容器端口的映射情况：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker port 5da3588d5bc4</span>
+<span class="token number">5000</span>/tcp -<span class="token operator">&gt;</span> <span class="token number">0.0</span>.0.0:5001
+<span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker port hopeful_bardeen</span>
+<span class="token number">5000</span>/tcp -<span class="token operator">&gt;</span> <span class="token number">0.0</span>.0.0:5001
+</code></pre></div><h3 id="查看-web-应用程序日志"><a href="#查看-web-应用程序日志" class="header-anchor">#</a> <a href="#%E6%9F%A5%E7%9C%8B-web-%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%97%A5%E5%BF%97">#</a> 查看 WEB 应用程序日志</h3> <blockquote><p>docker logs [ID或者名字] 可以查看容器内部的标准输出。</p></blockquote> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker port hopeful_bardeen</span>
+<span class="token number">5000</span>/tcp -<span class="token operator">&gt;</span> <span class="token number">0.0</span>.0.0:5001
+<span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker logs -f hopeful_bardeen</span>
+ * Running on http://0.0.0.0:5000/ <span class="token punctuation">(</span>Press CTRL+C to quit<span class="token punctuation">)</span>
+<span class="token number">172.17</span>.0.1 - - <span class="token punctuation">[</span><span class="token number">18</span>/Feb/2020 09:08:31<span class="token punctuation">]</span> <span class="token string">&quot;GET / HTTP/1.1&quot;</span> <span class="token number">200</span> -
+^C
+</code></pre></div><p>参数说明：</p> <ul><li><code>-f</code>: 让 docker logs 像使用 tail -f 一样来输出容器内部的标准输出。</li></ul> <p>从上面，我们可以看到应用程序使用的是 5000 端口并且能够查看到应用程序的访问日志。</p> <h3 id="查看web应用程序容器的进程"><a href="#查看web应用程序容器的进程" class="header-anchor">#</a> <a href="#%E6%9F%A5%E7%9C%8Bweb%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%AE%B9%E5%99%A8%E7%9A%84%E8%BF%9B%E7%A8%8B">#</a> 查看WEB应用程序容器的进程</h3> <p>我们还可以使用 docker top 来查看容器内部运行的进程</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker top hopeful_bardeen</span>
+<span class="token environment constant">UID</span>                 PID                 <span class="token environment constant">PPID</span>                C                   STIME               TTY                 TIME                CMD
+root                <span class="token number">2614</span>                <span class="token number">2597</span>                <span class="token number">0</span>                   <span class="token number">17</span>:07               ?                   00:00:00            python app.py
+</code></pre></div><h3 id="检查-web-应用程序"><a href="#检查-web-应用程序" class="header-anchor">#</a> <a href="#%E6%A3%80%E6%9F%A5-web-%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F">#</a> 检查 WEB 应用程序</h3> <p>使用 docker inspect 来查看 Docker 的底层信息。它会返回一个 JSON 文件记录着 Docker 容器的配置和状态信息。</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker inspect hopeful_bardeen</span>
+<span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+        <span class="token string">&quot;Id&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;5da3588d5bc43a9ed3aa61fb87f98220c9719d2879b616404d443aaae6cee77a&quot;</span>,
+        <span class="token string">&quot;Created&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;2020-02-18T09:07:32.827193286Z&quot;</span>,
+        <span class="token string">&quot;Path&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;python&quot;</span>,
+        <span class="token string">&quot;Args&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+            <span class="token string">&quot;app.py&quot;</span>
+        <span class="token punctuation">]</span>,
+        <span class="token string">&quot;State&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+            <span class="token string">&quot;Status&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;running&quot;</span>,
+            <span class="token string">&quot;Running&quot;</span><span class="token builtin class-name">:</span> true,
+            <span class="token string">&quot;Paused&quot;</span><span class="token builtin class-name">:</span> false,
+            <span class="token string">&quot;Restarting&quot;</span><span class="token builtin class-name">:</span> false,
+            <span class="token string">&quot;OOMKilled&quot;</span><span class="token builtin class-name">:</span> false,
+            <span class="token string">&quot;Dead&quot;</span><span class="token builtin class-name">:</span> false,
+            <span class="token string">&quot;Pid&quot;</span><span class="token builtin class-name">:</span> <span class="token number">2614</span>,
+            <span class="token string">&quot;ExitCode&quot;</span><span class="token builtin class-name">:</span> <span class="token number">0</span>,
+            <span class="token string">&quot;Error&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;&quot;</span>,
+            <span class="token string">&quot;StartedAt&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;2020-02-18T09:07:33.374368448Z&quot;</span>,
+            <span class="token string">&quot;FinishedAt&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;0001-01-01T00:00:00Z&quot;</span>
+        <span class="token punctuation">}</span>,
+        <span class="token string">&quot;Image&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;sha256:6fae60ef344644649a39240b94d73b8ba9c67f898ede85cf8e947a887b3e6557&quot;</span>,
+        <span class="token string">&quot;ResolvConfPath&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;/var/lib/docker/containers/5da3588d5bc43a9ed3aa61fb87f98220c9719d2879b616404d443aaae6cee77a/resolv.conf&quot;</span>,
+        <span class="token string">&quot;HostnamePath&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;/var/lib/docker/containers/5da3588d5bc43a9ed3aa61fb87f98220c9719d2879b616404d443aaae6cee77a/hostname&quot;</span>,
+        <span class="token string">&quot;HostsPath&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;/var/lib/docker/containers/5da3588d5bc43a9ed3aa61fb87f98220c9719d2879b616404d443aaae6cee77a/hosts&quot;</span>,
+        <span class="token string">&quot;LogPath&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;/var/lib/docker/containers/5da3588d5bc43a9ed3aa61fb87f98220c9719d2879b616404d443aaae6cee77a/5da3588d5bc43a9ed3aa61fb87f98220c9719d2879b616404d443aaae6cee77a-json.log&quot;</span>,
+        <span class="token string">&quot;Name&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;/hopeful_bardeen&quot;</span>,
+        <span class="token string">&quot;RestartCount&quot;</span><span class="token builtin class-name">:</span> <span class="token number">0</span>,
+        <span class="token string">&quot;Driver&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;overlay2&quot;</span>,
+        <span class="token string">&quot;Platform&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;linux&quot;</span>,
+        <span class="token string">&quot;MountLabel&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;&quot;</span>,
+        <span class="token string">&quot;ProcessLabel&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;&quot;</span>,
+        <span class="token string">&quot;AppArmorProfile&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;&quot;</span>,
+        <span class="token string">&quot;ExecIDs&quot;</span><span class="token builtin class-name">:</span> null,
+        <span class="token string">&quot;HostConfig&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+            <span class="token string">&quot;Binds&quot;</span><span class="token builtin class-name">:</span> null,
+            <span class="token string">&quot;ContainerIDFile&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;&quot;</span>,
+            <span class="token string">&quot;LogConfig&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+                <span class="token string">&quot;Type&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;json-file&quot;</span>,
+                <span class="token string">&quot;Config&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>,
+            <span class="token string">&quot;NetworkMode&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;default&quot;</span>,
+            <span class="token string">&quot;PortBindings&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+                <span class="token string">&quot;5000/tcp&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+                    <span class="token punctuation">{</span>
+                        <span class="token string">&quot;HostIp&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;&quot;</span>,
+                        <span class="token string">&quot;HostPort&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;5001&quot;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">]</span>
+            <span class="token punctuation">}</span>,
+            <span class="token string">&quot;RestartPolicy&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+                <span class="token string">&quot;Name&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;no&quot;</span>,
+                <span class="token string">&quot;MaximumRetryCount&quot;</span><span class="token builtin class-name">:</span> <span class="token number">0</span>
+            <span class="token punctuation">}</span>,
+            <span class="token string">&quot;AutoRemove&quot;</span><span class="token builtin class-name">:</span> false,
+            <span class="token string">&quot;VolumeDriver&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;&quot;</span>,
+            <span class="token string">&quot;VolumesFrom&quot;</span><span class="token builtin class-name">:</span> null,
+            <span class="token string">&quot;CapAdd&quot;</span><span class="token builtin class-name">:</span> null,
+            <span class="token string">&quot;CapDrop&quot;</span><span class="token builtin class-name">:</span> null,
+            <span class="token string">&quot;Capabilities&quot;</span><span class="token builtin class-name">:</span> null,
+            <span class="token string">&quot;Dns&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>,
+            <span class="token string">&quot;DnsOptions&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>,
+            <span class="token string">&quot;DnsSearch&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>,
+            <span class="token string">&quot;ExtraHosts&quot;</span><span class="token builtin class-name">:</span> null,
+            <span class="token string">&quot;GroupAdd&quot;</span><span class="token builtin class-name">:</span> null,
+            <span class="token string">&quot;IpcMode&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;private&quot;</span>,
+            <span class="token string">&quot;Cgroup&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;&quot;</span>,
+            <span class="token string">&quot;Links&quot;</span><span class="token builtin class-name">:</span> null,
+            <span class="token string">&quot;OomScoreAdj&quot;</span><span class="token builtin class-name">:</span> <span class="token number">0</span>,
+            <span class="token string">&quot;PidMode&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;&quot;</span>,
+            <span class="token string">&quot;Privileged&quot;</span><span class="token builtin class-name">:</span> false,
+            <span class="token string">&quot;PublishAllPorts&quot;</span><span class="token builtin class-name">:</span> false,
+            <span class="token string">&quot;ReadonlyRootfs&quot;</span><span class="token builtin class-name">:</span> false,
+            <span class="token string">&quot;SecurityOpt&quot;</span><span class="token builtin class-name">:</span> null,
+            <span class="token string">&quot;UTSMode&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;&quot;</span>,
+            <span class="token string">&quot;UsernsMode&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;&quot;</span>,
+            <span class="token string">&quot;ShmSize&quot;</span><span class="token builtin class-name">:</span> <span class="token number">67108864</span>,
+            <span class="token string">&quot;Runtime&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;runc&quot;</span>,
+            <span class="token string">&quot;ConsoleSize&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+                <span class="token number">0</span>,
+                <span class="token number">0</span>
+            <span class="token punctuation">]</span>,
+            <span class="token string">&quot;Isolation&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;&quot;</span>,
+            <span class="token string">&quot;CpuShares&quot;</span><span class="token builtin class-name">:</span> <span class="token number">0</span>,
+            <span class="token string">&quot;Memory&quot;</span><span class="token builtin class-name">:</span> <span class="token number">0</span>,
+            <span class="token string">&quot;NanoCpus&quot;</span><span class="token builtin class-name">:</span> <span class="token number">0</span>,
+            <span class="token string">&quot;CgroupParent&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;&quot;</span>,
+            <span class="token string">&quot;BlkioWeight&quot;</span><span class="token builtin class-name">:</span> <span class="token number">0</span>,
+            <span class="token string">&quot;BlkioWeightDevice&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>,
+            <span class="token string">&quot;BlkioDeviceReadBps&quot;</span><span class="token builtin class-name">:</span> null,
+            <span class="token string">&quot;BlkioDeviceWriteBps&quot;</span><span class="token builtin class-name">:</span> null,
+            <span class="token string">&quot;BlkioDeviceReadIOps&quot;</span><span class="token builtin class-name">:</span> null,
+            <span class="token string">&quot;BlkioDeviceWriteIOps&quot;</span><span class="token builtin class-name">:</span> null,
+            <span class="token string">&quot;CpuPeriod&quot;</span><span class="token builtin class-name">:</span> <span class="token number">0</span>,
+            <span class="token string">&quot;CpuQuota&quot;</span><span class="token builtin class-name">:</span> <span class="token number">0</span>,
+            <span class="token string">&quot;CpuRealtimePeriod&quot;</span><span class="token builtin class-name">:</span> <span class="token number">0</span>,
+            <span class="token string">&quot;CpuRealtimeRuntime&quot;</span><span class="token builtin class-name">:</span> <span class="token number">0</span>,
+            <span class="token string">&quot;CpusetCpus&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;&quot;</span>,
+            <span class="token string">&quot;CpusetMems&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;&quot;</span>,
+            <span class="token string">&quot;Devices&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>,
+            <span class="token string">&quot;DeviceCgroupRules&quot;</span><span class="token builtin class-name">:</span> null,
+            <span class="token string">&quot;DeviceRequests&quot;</span><span class="token builtin class-name">:</span> null,
+            <span class="token string">&quot;KernelMemory&quot;</span><span class="token builtin class-name">:</span> <span class="token number">0</span>,
+            <span class="token string">&quot;KernelMemoryTCP&quot;</span><span class="token builtin class-name">:</span> <span class="token number">0</span>,
+            <span class="token string">&quot;MemoryReservation&quot;</span><span class="token builtin class-name">:</span> <span class="token number">0</span>,
+            <span class="token string">&quot;MemorySwap&quot;</span><span class="token builtin class-name">:</span> <span class="token number">0</span>,
+            <span class="token string">&quot;MemorySwappiness&quot;</span><span class="token builtin class-name">:</span> null,
+            <span class="token string">&quot;OomKillDisable&quot;</span><span class="token builtin class-name">:</span> false,
+            <span class="token string">&quot;PidsLimit&quot;</span><span class="token builtin class-name">:</span> null,
+            <span class="token string">&quot;Ulimits&quot;</span><span class="token builtin class-name">:</span> null,
+            <span class="token string">&quot;CpuCount&quot;</span><span class="token builtin class-name">:</span> <span class="token number">0</span>,
+            <span class="token string">&quot;CpuPercent&quot;</span><span class="token builtin class-name">:</span> <span class="token number">0</span>,
+            <span class="token string">&quot;IOMaximumIOps&quot;</span><span class="token builtin class-name">:</span> <span class="token number">0</span>,
+            <span class="token string">&quot;IOMaximumBandwidth&quot;</span><span class="token builtin class-name">:</span> <span class="token number">0</span>,
+            <span class="token string">&quot;MaskedPaths&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+                <span class="token string">&quot;/proc/asound&quot;</span>,
+                <span class="token string">&quot;/proc/acpi&quot;</span>,
+                <span class="token string">&quot;/proc/kcore&quot;</span>,
+                <span class="token string">&quot;/proc/keys&quot;</span>,
+                <span class="token string">&quot;/proc/latency_stats&quot;</span>,
+                <span class="token string">&quot;/proc/timer_list&quot;</span>,
+                <span class="token string">&quot;/proc/timer_stats&quot;</span>,
+                <span class="token string">&quot;/proc/sched_debug&quot;</span>,
+                <span class="token string">&quot;/proc/scsi&quot;</span>,
+                <span class="token string">&quot;/sys/firmware&quot;</span>
+            <span class="token punctuation">]</span>,
+            <span class="token string">&quot;ReadonlyPaths&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+                <span class="token string">&quot;/proc/bus&quot;</span>,
+                <span class="token string">&quot;/proc/fs&quot;</span>,
+                <span class="token string">&quot;/proc/irq&quot;</span>,
+                <span class="token string">&quot;/proc/sys&quot;</span>,
+                <span class="token string">&quot;/proc/sysrq-trigger&quot;</span>
+            <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>,
+        <span class="token string">&quot;GraphDriver&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+            <span class="token string">&quot;Data&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+                <span class="token string">&quot;LowerDir&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;/var/lib/docker/overlay2/c6594e5b70feca02eb4b90ac75aba711f36378d5cb9853ffca1ec92f9d0c3e14-init/diff:/var/lib/docker/overlay2/d4690a06236a3857a2a51ab84c61992e50ea3e1a613f4793334916604ea0dfa0/diff:/var/lib/docker/overlay2/c45d0215cd2076174f38fea5003c3ff11a5ba2df2141d9d069f4bf32dac9a22a/diff:/var/lib/docker/overlay2/1cf63068912234a1f4c861f58f155423c87193c6e438948db493687d4da4f0a0/diff:/var/lib/docker/overlay2/55e4ecb04b1ff8d048bc75bb8698c782c813d45caa6f0d82ac6c49adec24bead/diff:/var/lib/docker/overlay2/27fa0dc314b851b8d2f0386d230a725f57117f9f1ccdb49ca27f5ad424cb4a90/diff:/var/lib/docker/overlay2/65a5a082188d9e0b9aaf09c2e9c3b3f8141f74c781996680dfaca63d81672cdf/diff:/var/lib/docker/overlay2/658a33c92cf114ee4cbc10f117207a0c813e39a908acc014fbce1783a28bc654/diff:/var/lib/docker/overlay2/e5b5c9e0abc43ff2750dcd33decc65d90d733b18f2626b91c500d803d7fe189b/diff:/var/lib/docker/overlay2/0b5181e429a89f6ab291e090b972e11718e4f63158ed60af1fce18095d0352a6/diff:/var/lib/docker/overlay2/f7c0405739bb58fdfa9af402a72507b78bc2a48b0d74356dad59495906b6e0e5/diff:/var/lib/docker/overlay2/073c45ae4a6ff27950a1dd969a675d3dcdc18392bb205ddde5913fcc10a751ef/diff:/var/lib/docker/overlay2/f92534844c8cc5b950ea36369b8e4a7dd7f7749e73483908e5d129bf5c26442f/diff:/var/lib/docker/overlay2/477378381d03c4b347d7b9224c4c9023b5dfbfde32022c7eb8af32e7a01b88b2/diff&quot;</span>,
+                <span class="token string">&quot;MergedDir&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;/var/lib/docker/overlay2/c6594e5b70feca02eb4b90ac75aba711f36378d5cb9853ffca1ec92f9d0c3e14/merged&quot;</span>,
+                <span class="token string">&quot;UpperDir&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;/var/lib/docker/overlay2/c6594e5b70feca02eb4b90ac75aba711f36378d5cb9853ffca1ec92f9d0c3e14/diff&quot;</span>,
+                <span class="token string">&quot;WorkDir&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;/var/lib/docker/overlay2/c6594e5b70feca02eb4b90ac75aba711f36378d5cb9853ffca1ec92f9d0c3e14/work&quot;</span>
+            <span class="token punctuation">}</span>,
+            <span class="token string">&quot;Name&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;overlay2&quot;</span>
+        <span class="token punctuation">}</span>,
+        <span class="token string">&quot;Mounts&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>,
+        <span class="token string">&quot;Config&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+            <span class="token string">&quot;Hostname&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;5da3588d5bc4&quot;</span>,
+            <span class="token string">&quot;Domainname&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;&quot;</span>,
+            <span class="token string">&quot;User&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;&quot;</span>,
+            <span class="token string">&quot;AttachStdin&quot;</span><span class="token builtin class-name">:</span> false,
+            <span class="token string">&quot;AttachStdout&quot;</span><span class="token builtin class-name">:</span> false,
+            <span class="token string">&quot;AttachStderr&quot;</span><span class="token builtin class-name">:</span> false,
+            <span class="token string">&quot;ExposedPorts&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+                <span class="token string">&quot;5000/tcp&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>,
+            <span class="token string">&quot;Tty&quot;</span><span class="token builtin class-name">:</span> false,
+            <span class="token string">&quot;OpenStdin&quot;</span><span class="token builtin class-name">:</span> false,
+            <span class="token string">&quot;StdinOnce&quot;</span><span class="token builtin class-name">:</span> false,
+            <span class="token string">&quot;Env&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+                <span class="token string">&quot;PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin&quot;</span>
+            <span class="token punctuation">]</span>,
+            <span class="token string">&quot;Cmd&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+                <span class="token string">&quot;python&quot;</span>,
+                <span class="token string">&quot;app.py&quot;</span>
+            <span class="token punctuation">]</span>,
+            <span class="token string">&quot;Image&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;training/webapp&quot;</span>,
+            <span class="token string">&quot;Volumes&quot;</span><span class="token builtin class-name">:</span> null,
+            <span class="token string">&quot;WorkingDir&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;/opt/webapp&quot;</span>,
+            <span class="token string">&quot;Entrypoint&quot;</span><span class="token builtin class-name">:</span> null,
+            <span class="token string">&quot;OnBuild&quot;</span><span class="token builtin class-name">:</span> null,
+            <span class="token string">&quot;Labels&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>,
+        <span class="token string">&quot;NetworkSettings&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+            <span class="token string">&quot;Bridge&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;&quot;</span>,
+            <span class="token string">&quot;SandboxID&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;66e1f111a5d7acca71f0e9e24516a6945bca428f55ac1eab1576c99bde16190c&quot;</span>,
+            <span class="token string">&quot;HairpinMode&quot;</span><span class="token builtin class-name">:</span> false,
+            <span class="token string">&quot;LinkLocalIPv6Address&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;&quot;</span>,
+            <span class="token string">&quot;LinkLocalIPv6PrefixLen&quot;</span><span class="token builtin class-name">:</span> <span class="token number">0</span>,
+            <span class="token string">&quot;Ports&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+                <span class="token string">&quot;5000/tcp&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+                    <span class="token punctuation">{</span>
+                        <span class="token string">&quot;HostIp&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;0.0.0.0&quot;</span>,
+                        <span class="token string">&quot;HostPort&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;5001&quot;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">]</span>
+            <span class="token punctuation">}</span>,
+            <span class="token string">&quot;SandboxKey&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;/var/run/docker/netns/66e1f111a5d7&quot;</span>,
+            <span class="token string">&quot;SecondaryIPAddresses&quot;</span><span class="token builtin class-name">:</span> null,
+            <span class="token string">&quot;SecondaryIPv6Addresses&quot;</span><span class="token builtin class-name">:</span> null,
+            <span class="token string">&quot;EndpointID&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;794d5e97cd3bbb62c8a7a850f125404d174ecc45df4e704dbee403b1be7a2835&quot;</span>,
+            <span class="token string">&quot;Gateway&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;172.17.0.1&quot;</span>,
+            <span class="token string">&quot;GlobalIPv6Address&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;&quot;</span>,
+            <span class="token string">&quot;GlobalIPv6PrefixLen&quot;</span><span class="token builtin class-name">:</span> <span class="token number">0</span>,
+            <span class="token string">&quot;IPAddress&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;172.17.0.3&quot;</span>,
+            <span class="token string">&quot;IPPrefixLen&quot;</span><span class="token builtin class-name">:</span> <span class="token number">16</span>,
+            <span class="token string">&quot;IPv6Gateway&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;&quot;</span>,
+            <span class="token string">&quot;MacAddress&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;02:42:ac:11:00:03&quot;</span>,
+            <span class="token string">&quot;Networks&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+                <span class="token string">&quot;bridge&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+                    <span class="token string">&quot;IPAMConfig&quot;</span><span class="token builtin class-name">:</span> null,
+                    <span class="token string">&quot;Links&quot;</span><span class="token builtin class-name">:</span> null,
+                    <span class="token string">&quot;Aliases&quot;</span><span class="token builtin class-name">:</span> null,
+                    <span class="token string">&quot;NetworkID&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;b8c5abdb0becacfa1bfa1d72e2e663fb0157b62a9b8bee37e2607211722713cc&quot;</span>,
+                    <span class="token string">&quot;EndpointID&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;794d5e97cd3bbb62c8a7a850f125404d174ecc45df4e704dbee403b1be7a2835&quot;</span>,
+                    <span class="token string">&quot;Gateway&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;172.17.0.1&quot;</span>,
+                    <span class="token string">&quot;IPAddress&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;172.17.0.3&quot;</span>,
+                    <span class="token string">&quot;IPPrefixLen&quot;</span><span class="token builtin class-name">:</span> <span class="token number">16</span>,
+                    <span class="token string">&quot;IPv6Gateway&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;&quot;</span>,
+                    <span class="token string">&quot;GlobalIPv6Address&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;&quot;</span>,
+                    <span class="token string">&quot;GlobalIPv6PrefixLen&quot;</span><span class="token builtin class-name">:</span> <span class="token number">0</span>,
+                    <span class="token string">&quot;MacAddress&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;02:42:ac:11:00:03&quot;</span>,
+                    <span class="token string">&quot;DriverOpts&quot;</span><span class="token builtin class-name">:</span> null
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre></div><h3 id="停止-web-应用容器"><a href="#停止-web-应用容器" class="header-anchor">#</a> <a href="#%E5%81%9C%E6%AD%A2-web-%E5%BA%94%E7%94%A8%E5%AE%B9%E5%99%A8">#</a> 停止 WEB 应用容器</h3> <p>再复习下docker的停止</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker stop hopeful_bardeen</span>
+hopeful_bardeen
+<span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker ps -a | grep 'hopeful_bardeen'</span>
+5da3588d5bc4        training/webapp      <span class="token string">&quot;python app.py&quot;</span>      <span class="token number">13</span> minutes ago      Exited <span class="token punctuation">(</span><span class="token number">137</span><span class="token punctuation">)</span> <span class="token number">12</span> seconds ago                             hopeful_bardeen
+</code></pre></div><h3 id="重启web应用容器"><a href="#重启web应用容器" class="header-anchor">#</a> <a href="#%E9%87%8D%E5%90%AFweb%E5%BA%94%E7%94%A8%E5%AE%B9%E5%99%A8">#</a> 重启WEB应用容器</h3> <p>已经停止的容器，我们可以使用命令 docker start 或者docker restart 来启动。</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker restart hopeful_bardeen</span>
+hopeful_bardeen
+<span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker ps -a | grep hopeful_bardeen</span>
+5da3588d5bc4        training/webapp      <span class="token string">&quot;python app.py&quot;</span>      <span class="token number">14</span> minutes ago      Up <span class="token number">10</span> seconds            <span class="token number">0.0</span>.0.0:5001-<span class="token operator">&gt;</span><span class="token number">5000</span>/tcp    hopeful_bardeen
+</code></pre></div><h3 id="移除web应用容器"><a href="#移除web应用容器" class="header-anchor">#</a> <a href="#%E7%A7%BB%E9%99%A4web%E5%BA%94%E7%94%A8%E5%AE%B9%E5%99%A8">#</a> 移除WEB应用容器</h3> <p>我们可以使用 docker rm 命令来删除不需要的容器</p> <p>我们上文也讲过，如果是启动着的docker实例，需要加-f，强制（force）删除。</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker ps -a | grep hopeful_bardeen</span>
+5da3588d5bc4        training/webapp      <span class="token string">&quot;python app.py&quot;</span>      <span class="token number">14</span> minutes ago      Up <span class="token number">10</span> seconds            <span class="token number">0.0</span>.0.0:5001-<span class="token operator">&gt;</span><span class="token number">5000</span>/tcp    hopeful_bardeen
+<span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker rm -f hopeful_bardeen</span>
+hopeful_bardeen
+<span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker ps -a | grep hopeful_bardeen</span>
+<span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment">#</span>
+</code></pre></div><h2 id="与其它容器-db容器-互联"><a href="#与其它容器-db容器-互联" class="header-anchor">#</a> <a href="#%E4%B8%8E%E5%85%B6%E5%AE%83%E5%AE%B9%E5%99%A8-db%E5%AE%B9%E5%99%A8-%E4%BA%92%E8%81%94">#</a> 与其它容器（DB容器）互联</h2> <blockquote><p>上述是一个web单一容器通过端口映射，可以通过主机端口访问容器；那么如果需要访问数据库，就涉及到容器互联。</p></blockquote> <h3 id="与数据库容器互联"><a href="#与数据库容器互联" class="header-anchor">#</a> <a href="#%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%B9%E5%99%A8%E4%BA%92%E8%81%94">#</a> 与数据库容器互联</h3> <ul><li>先停止上述的web容器, 且清理所有不用的容器</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker ps -a</span>
+CONTAINER ID        IMAGE                COMMAND              CREATED             STATUS                    PORTS                     NAMES
+ec3eb9ae2184        training/webapp      <span class="token string">&quot;python app.py&quot;</span>      <span class="token number">18</span> hours ago        Up <span class="token number">18</span> hours               <span class="token number">0.0</span>.0.0:32768-<span class="token operator">&gt;</span><span class="token number">5000</span>/tcp   gifted_agnesi
+11de9755a084        pdai/ubuntu:v2.0.2   <span class="token string">&quot;/bin/bash&quot;</span>          <span class="token number">24</span> hours ago        Exited <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token number">24</span> hours ago                             pdai-ubuntu-202
+57bd797570b6        pdai/ubuntu:v2.0.2   <span class="token string">&quot;--name pdai-test&quot;</span>   <span class="token number">24</span> hours ago        Created                                             sharp_brahmagupta
+<span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker stop ec3eb9ae2184</span>
+ec3eb9ae2184
+<span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker ps -a</span>
+CONTAINER ID        IMAGE                COMMAND              CREATED             STATUS                        PORTS               NAMES
+ec3eb9ae2184        training/webapp      <span class="token string">&quot;python app.py&quot;</span>      <span class="token number">18</span> hours ago        Exited <span class="token punctuation">(</span><span class="token number">137</span><span class="token punctuation">)</span> <span class="token number">29</span> seconds ago                       gifted_agnesi
+11de9755a084        pdai/ubuntu:v2.0.2   <span class="token string">&quot;/bin/bash&quot;</span>          <span class="token number">24</span> hours ago        Exited <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token number">24</span> hours ago                           pdai-ubuntu-202
+57bd797570b6        pdai/ubuntu:v2.0.2   <span class="token string">&quot;--name pdai-test&quot;</span>   <span class="token number">24</span> hours ago        Created                                           sharp_brahmagupta
+<span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker container prune</span>
+WARNING<span class="token operator">!</span> This will remove all stopped containers.
+Are you sure you want to continue? <span class="token punctuation">[</span>y/N<span class="token punctuation">]</span> y
+Deleted Containers:
+ec3eb9ae218494d5aa5902c1ca4435733567b5e81319f02e5d2509d45cbc25da
+11de9755a08402d963d263a559a7daf48f4a2188398f258641240b5eb50fbc89
+57bd797570b68b6587b16809889e6e8f710ec7a934229aa6391add02f758e036
+
+Total reclaimed space: 89B
+<span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment">#</span>
+</code></pre></div><ul><li>创建一个新的数据库容器。</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker run -d --name db training/postgres</span>
+Unable to <span class="token function">find</span> image <span class="token string">'training/postgres:latest'</span> locally
+latest: Pulling from training/postgres
+Image docker.io/training/postgres:latest uses outdated schema1 manifest format. Please upgrade to a schema2 image <span class="token keyword">for</span> better future compatibility. More information at https://docs.docker.com/registry/spec/deprecated-schema-v1/
+a3ed95caeb02: Pull complete
+6e71c809542e: Pull complete
+2978d9af87ba: Pull complete
+e1bca35b062f: Pull complete
+500b6decf741: Pull complete
+74b14ef2151f: Pull complete
+7afd5ed3826e: Pull complete
+3c69bb244f5e: Pull complete
+d86f9ec5aedf: Pull complete
+010fabf20157: Pull complete
+Digest: sha256:a945dc6dcfbc8d009c3d972931608344b76c2870ce796da00a827bd50791907e
+Status: Downloaded newer image <span class="token keyword">for</span> training/postgres:latest
+d992e3c761e00649eb436b88c737adc54093b76119af0fb7878596b523f743ca
+<span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker ps</span>
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
+d992e3c761e0        training/postgres   <span class="token string">&quot;su postgres -c '/us…&quot;</span>   <span class="token number">9</span> seconds ago       Up <span class="token number">7</span> seconds        <span class="token number">5432</span>/tcp            db
+</code></pre></div><ul><li>db 容器和 web 容器建立互联关系</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker run -d -p 5001:5000 --name web --link db:db training/webapp python app.py</span>
+1cbc9aeba2a8a826d460ecb49de17ddf8ac336e150c752a3c762fd38a3e15254
+<span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker ps -a</span>
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
+1cbc9aeba2a8        training/webapp     <span class="token string">&quot;python app.py&quot;</span>          <span class="token number">5</span> seconds ago       Up <span class="token number">4</span> seconds        <span class="token number">0.0</span>.0.0:5001-<span class="token operator">&gt;</span><span class="token number">5000</span>/tcp   web
+d992e3c761e0        training/postgres   <span class="token string">&quot;su postgres -c '/us…&quot;</span>   <span class="token number">7</span> minutes ago       Up <span class="token number">7</span> minutes        <span class="token number">5432</span>/tcp                 db
+</code></pre></div><p>--link 参数的格式为 --link name:alias，其中 name 是要链接的容器的名称，alias 是这个连接的别名。</p> <blockquote><p>Docker 在两个互联的容器之间创建了一个安全隧道，而且不用映射它们的端口到宿主主机上。在启动 db 容器的时候并没有使用 -p 和 -P 标记，从而避免了暴露数据库端口到外部网络上。</p></blockquote> <h3 id="容器公开的连接信息"><a href="#容器公开的连接信息" class="header-anchor">#</a> <a href="#%E5%AE%B9%E5%99%A8%E5%85%AC%E5%BC%80%E7%9A%84%E8%BF%9E%E6%8E%A5%E4%BF%A1%E6%81%AF">#</a> 容器公开的连接信息</h3> <p>Docker 通过 2 种方式为容器公开连接信息：</p> <ul><li>环境变量</li> <li>更新 /etc/hosts 文件</li></ul> <h4 id="环境变量"><a href="#环境变量" class="header-anchor">#</a> <a href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">#</a> 环境变量</h4> <p>使用 env 命令来查看 web 容器的环境变量</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@pdai ~<span class="token punctuation">]</span><span class="token comment"># docker exec -it web /bin/bash</span>
+root@1cbc9aeba2a8:/opt/webapp<span class="token comment"># env</span>
+<span class="token assign-left variable"><span class="token environment constant">HOSTNAME</span></span><span class="token operator">=</span>1cbc9aeba2a8
+<span class="token assign-left variable">DB_NAME</span><span class="token operator">=</span>/web/db
+<span class="token assign-left variable">DB_PORT_5432_TCP_ADDR</span><span class="token operator">=</span><span class="token number">172.17</span>.0.2
+<span class="token assign-left variable">DB_PORT</span><span class="token operator">=</span>tcp://172.17.0.2:5432
+<span class="token assign-left variable">DB_PORT_5432_TCP</span><span class="token operator">=</span>tcp://172.17.0.2:5432
+<span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+<span class="token assign-left variable"><span class="token environment constant">PWD</span></span><span class="token operator">=</span>/opt/webapp
+<span class="token assign-left variable">DB_PORT_5432_TCP_PORT</span><span class="token operator">=</span><span class="token number">5432</span>
+<span class="token assign-left variable"><span class="token environment constant">SHLVL</span></span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token assign-left variable"><span class="token environment constant">HOME</span></span><span class="token operator">=</span>/root
+<span class="token assign-left variable">DB_PORT_5432_TCP_PROTO</span><span class="token operator">=</span>tcp
+<span class="token assign-left variable">DB_ENV_PG_VERSION</span><span class="token operator">=</span><span class="token number">9.3</span>
+<span class="token assign-left variable">_</span><span class="token operator">=</span>/usr/bin/env
+</code></pre></div><p>其中 DB_ 开头的环境变量是供 web 容器连接 db 容器使用，前缀采用大写的连接别名。</p> <h4 id="hosts-文件"><a href="#hosts-文件" class="header-anchor">#</a> <a href="#hosts-%E6%96%87%E4%BB%B6">#</a> hosts 文件</h4> <p>除了环境变量，Docker 还添加 host 信息到父容器的 /etc/hosts 的文件。下面是父容器 web 的 hosts 文件</p> <div class="language-bash extra-class"><pre class="language-bash"><code>root@1cbc9aeba2a8:/opt/webapp<span class="token comment"># cat /etc/hosts</span>
+<span class="token number">127.0</span>.0.1       localhost
+::1     localhost ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+<span class="token number">172.17</span>.0.2      db d992e3c761e0
+<span class="token number">172.17</span>.0.3      1cbc9aeba2a8
+root@1cbc9aeba2a8:/opt/webapp<span class="token comment">#</span>
+</code></pre></div><p>这里有 2 个 hosts:</p> <ul><li>第一个, <code>172.17.0.2 db d992e3c761e0</code> 表示 db 容器的 ip, ID和Name</li> <li>第二个，<code>172.17.0.3 1cbc9aeba2a8</code> 表示 web 容器的 ip, ID</li></ul> <p>可以在 web 容器中安装 ping 命令来测试跟db容器的连通。</p> <div class="language-bash extra-class"><pre class="language-bash"><code>root@1cbc9aeba2a8:/opt/webapp<span class="token comment"># apt-get install -yqq inetutils-ping</span>
+<span class="token punctuation">(</span>Reading database <span class="token punctuation">..</span>. <span class="token number">18233</span> files and directories currently installed.<span class="token punctuation">)</span>
+Removing ubuntu-minimal <span class="token punctuation">(</span><span class="token number">1.325</span><span class="token punctuation">)</span> <span class="token punctuation">..</span>.
+Removing iputils-ping <span class="token punctuation">(</span><span class="token number">3</span>:20121221-4ubuntu1.1<span class="token punctuation">)</span> <span class="token punctuation">..</span>.
+Selecting previously unselected package inetutils-ping.
+<span class="token punctuation">(</span>Reading database <span class="token punctuation">..</span>. <span class="token number">18221</span> files and directories currently installed.<span class="token punctuation">)</span>
+Preparing to unpack <span class="token punctuation">..</span>./inetutils-ping_2%3a1.9.2-1_amd64.deb <span class="token punctuation">..</span>.
+Unpacking inetutils-ping <span class="token punctuation">(</span><span class="token number">2</span>:1.9.2-1<span class="token punctuation">)</span> <span class="token punctuation">..</span>.
+Setting up inetutils-ping <span class="token punctuation">(</span><span class="token number">2</span>:1.9.2-1<span class="token punctuation">)</span> <span class="token punctuation">..</span>.
+root@1cbc9aeba2a8:/opt/webapp<span class="token comment"># ping db</span>
+PING db <span class="token punctuation">(</span><span class="token number">172.17</span>.0.2<span class="token punctuation">)</span>: <span class="token number">56</span> data bytes
+<span class="token number">64</span> bytes from <span class="token number">172.17</span>.0.2: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.110</span> ms
+<span class="token number">64</span> bytes from <span class="token number">172.17</span>.0.2: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">1</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.092</span> ms
+<span class="token number">64</span> bytes from <span class="token number">172.17</span>.0.2: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">2</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.094</span> ms
+<span class="token number">64</span> bytes from <span class="token number">172.17</span>.0.2: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">3</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.104</span> ms
+<span class="token number">64</span> bytes from <span class="token number">172.17</span>.0.2: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">4</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.111</span> ms
+<span class="token number">64</span> bytes from <span class="token number">172.17</span>.0.2: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">5</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.093</span> ms
+<span class="token number">64</span> bytes from <span class="token number">172.17</span>.0.2: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">6</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.095</span> ms
+^C--- db <span class="token function">ping</span> statistics ---
+<span class="token number">7</span> packets transmitted, <span class="token number">7</span> packets received, <span class="token number">0</span>% packet loss
+round-trip min/avg/max/stddev <span class="token operator">=</span> <span class="token number">0.092</span>/0.100/0.111/0.000 ms
+</code></pre></div><p>用 ping 来测试db容器，它会解析成 172.17.0.2。</p> <p>当然，你还可以ping db容器的ID或者内部IP, 结果是一样的。</p> <div class="language-bash extra-class"><pre class="language-bash"><code>root@1cbc9aeba2a8:/opt/webapp<span class="token comment"># ping -t 4 d992e3c761e0</span>
+ping: unsupported packet type: <span class="token number">4</span>
+root@1cbc9aeba2a8:/opt/webapp<span class="token comment"># ping d992e3c761e0</span>
+PING db <span class="token punctuation">(</span><span class="token number">172.17</span>.0.2<span class="token punctuation">)</span>: <span class="token number">56</span> data bytes
+<span class="token number">64</span> bytes from <span class="token number">172.17</span>.0.2: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.089</span> ms
+<span class="token number">64</span> bytes from <span class="token number">172.17</span>.0.2: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">1</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.093</span> ms
+^C--- db <span class="token function">ping</span> statistics ---
+<span class="token number">2</span> packets transmitted, <span class="token number">2</span> packets received, <span class="token number">0</span>% packet loss
+round-trip min/avg/max/stddev <span class="token operator">=</span> <span class="token number">0.089</span>/0.091/0.093/0.000 ms
+root@1cbc9aeba2a8:/opt/webapp<span class="token comment"># ping 172.17.0.2</span>
+PING <span class="token number">172.17</span>.0.2 <span class="token punctuation">(</span><span class="token number">172.17</span>.0.2<span class="token punctuation">)</span>: <span class="token number">56</span> data bytes
+<span class="token number">64</span> bytes from <span class="token number">172.17</span>.0.2: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.094</span> ms
+<span class="token number">64</span> bytes from <span class="token number">172.17</span>.0.2: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">1</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.103</span> ms
+^C--- <span class="token number">172.17</span>.0.2 <span class="token function">ping</span> statistics ---
+<span class="token number">2</span> packets transmitted, <span class="token number">2</span> packets received, <span class="token number">0</span>% packet loss
+round-trip min/avg/max/stddev <span class="token operator">=</span> <span class="token number">0.094</span>/0.099/0.103/0.000 ms
+root@1cbc9aeba2a8:/opt/webapp<span class="token comment">#</span>
+</code></pre></div><p>用户可以链接多个父容器到子容器，比如可以链接多个 web 到 db 容器上。</p> <hr> <p>著作权归@pdai所有 原文链接：https://pdai.tech/md/devops/docker/docker-03-basic-web-app.html</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/部署与工具/Docker相关/04 仓库 镜像 容器详解.html" class="prev">
+        仓库 镜像 容器详解
+      </a></span> <span class="next"><a href="/blog/部署与工具/Docker相关/06 Docker网络使用和配置.html">
+        Docker网络使用和配置
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.ba0a3011.js" defer></script><script src="/blog/assets/js/4.a5b48594.js" defer></script><script src="/blog/assets/js/49.9e76608b.js" defer></script>
+  </body>
+</html>
